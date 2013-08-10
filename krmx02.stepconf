@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="4100.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '5f7796f12b8bbeb1b30700b274e6edad'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'ad805564409e58e2b9cf0fed3df8ddc3'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'cee8f8df73a0f53a5ee07ae30aaaad59')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', 'ab89ff61857136811948313e02397311'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'debb1c68822d8ccbcc579b031d0955d2'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'b0d3bee6541fdeada45b704305b2c882')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -100,7 +100,7 @@
   <property name="xhomevel" type="float" value="0.05"/>
   <property name="xlatchdir" type="int" value="0"/>
   <property name="xleadscrew" type="float" value="0.318309886184"/>
-  <property name="xmaxacc" type="float" value="10.0"/>
+  <property name="xmaxacc" type="float" value="20.0"/>
   <property name="xmaxlim" type="float" value="26.0"/>
   <property name="xmaxvel" type="float" value="16.67"/>
   <property name="xmicrostep" type="float" value="10.0"/>
@@ -114,7 +114,7 @@
   <property name="yhomevel" type="float" value="0.05"/>
   <property name="ylatchdir" type="int" value="0"/>
   <property name="yleadscrew" type="float" value="0.318309886184"/>
-  <property name="ymaxacc" type="float" value="10.0"/>
+  <property name="ymaxacc" type="float" value="20.0"/>
   <property name="ymaxlim" type="float" value="22.0"/>
   <property name="ymaxvel" type="float" value="16.67"/>
   <property name="ymicrostep" type="float" value="10.0"/>
@@ -128,7 +128,7 @@
   <property name="zhomevel" type="float" value="0.05"/>
   <property name="zlatchdir" type="int" value="0"/>
   <property name="zleadscrew" type="float" value="2.0"/>
-  <property name="zmaxacc" type="float" value="10.0"/>
+  <property name="zmaxacc" type="float" value="20.0"/>
   <property name="zmaxlim" type="float" value="5.0"/>
   <property name="zmaxvel" type="float" value="8.75"/>
   <property name="zmicrostep" type="float" value="10.0"/>
