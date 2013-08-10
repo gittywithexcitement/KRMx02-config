@@ -21,9 +21,9 @@
   <property name="customhal" type="int" value="1"/>
   <property name="digitsin" type="float" value="15.0"/>
   <property name="digitsout" type="float" value="15.0"/>
-  <property name="dirhold" type="float" value="200.0"/>
-  <property name="dirsetup" type="float" value="200.0"/>
-  <property name="drivertype" type="string" value="gecko540"/>
+  <property name="dirhold" type="float" value="400.0"/>
+  <property name="dirsetup" type="float" value="400.0"/>
+  <property name="drivertype" type="string" value="other"/>
   <property name="floatsin" type="float" value="10.0"/>
   <property name="floatsout" type="float" value="10.0"/>
   <property name="halui" type="bool" value="False"/>
@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="4100.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '79e9b4bc25062e4c60d92b9030a9f8bd'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'dd0e10075d85ece477df43db794c5db1'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '0d2c3915b04a6608f92765b25fc0c92e')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', 'fe48bfcf1ea7170b2d23d3ac6629ff33'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '8a0dada2ef837d47e3c8d00fb38ba703'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'c134bfcaa84ae918927774e4eb013107')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -90,8 +90,8 @@
   <property name="spindlepwm2" type="float" value="0.8"/>
   <property name="spindlespeed1" type="float" value="100.0"/>
   <property name="spindlespeed2" type="float" value="800.0"/>
-  <property name="stepspace" type="float" value="2000.0"/>
-  <property name="steptime" type="float" value="1000.0"/>
+  <property name="stepspace" type="float" value="4000.0"/>
+  <property name="steptime" type="float" value="2000.0"/>
   <property name="tempexists" type="int" value="0"/>
   <property name="units" type="int" value="0"/>
   <property name="usespindleatspeed" type="bool" value="False"/>
@@ -100,7 +100,7 @@
   <property name="xhomevel" type="float" value="0.05"/>
   <property name="xlatchdir" type="int" value="0"/>
   <property name="xleadscrew" type="float" value="0.318309886184"/>
-  <property name="xmaxacc" type="float" value="25.0"/>
+  <property name="xmaxacc" type="float" value="5.0"/>
   <property name="xmaxlim" type="float" value="26.0"/>
   <property name="xmaxvel" type="float" value="16.67"/>
   <property name="xmicrostep" type="float" value="10.0"/>
@@ -114,7 +114,7 @@
   <property name="yhomevel" type="float" value="0.05"/>
   <property name="ylatchdir" type="int" value="0"/>
   <property name="yleadscrew" type="float" value="0.318309886184"/>
-  <property name="ymaxacc" type="float" value="25.0"/>
+  <property name="ymaxacc" type="float" value="5.0"/>
   <property name="ymaxlim" type="float" value="22.0"/>
   <property name="ymaxvel" type="float" value="16.67"/>
   <property name="ymicrostep" type="float" value="10.0"/>
@@ -128,7 +128,7 @@
   <property name="zhomevel" type="float" value="0.05"/>
   <property name="zlatchdir" type="int" value="0"/>
   <property name="zleadscrew" type="float" value="2.0"/>
-  <property name="zmaxacc" type="float" value="25.0"/>
+  <property name="zmaxacc" type="float" value="5.0"/>
   <property name="zmaxlim" type="float" value="5.0"/>
   <property name="zmaxvel" type="float" value="8.75"/>
   <property name="zmicrostep" type="float" value="10.0"/>
