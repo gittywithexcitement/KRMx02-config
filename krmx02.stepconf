@@ -21,8 +21,8 @@
   <property name="customhal" type="int" value="1"/>
   <property name="digitsin" type="float" value="15.0"/>
   <property name="digitsout" type="float" value="15.0"/>
-  <property name="dirhold" type="float" value="400.0"/>
-  <property name="dirsetup" type="float" value="400.0"/>
+  <property name="dirhold" type="float" value="200000.0"/>
+  <property name="dirsetup" type="float" value="200000.0"/>
   <property name="drivertype" type="string" value="other"/>
   <property name="floatsin" type="float" value="10.0"/>
   <property name="floatsout" type="float" value="10.0"/>
@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="4100.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '80684b18bf666b2674b30addb1a5c876'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'd48d3e6dc595b28cff52d30eb1673b9d'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '9146cb0390c36c54b0ad61fb3397c2b2')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '8b6408bb24a6512a52c5b0daf269fb1c'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '906e4d02737bcfc2d7526ee7ffc7b09c'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '188d7135798f06c565904674cfaecd97')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -128,9 +128,9 @@
   <property name="zhomevel" type="float" value="0.05"/>
   <property name="zlatchdir" type="int" value="0"/>
   <property name="zleadscrew" type="float" value="2.0"/>
-  <property name="zmaxacc" type="float" value="30.0"/>
+  <property name="zmaxacc" type="float" value="2.0"/>
   <property name="zmaxlim" type="float" value="5.0"/>
-  <property name="zmaxvel" type="float" value="8.75"/>
+  <property name="zmaxvel" type="float" value="1.0"/>
   <property name="zmicrostep" type="float" value="10.0"/>
   <property name="zminlim" type="float" value="-1.0"/>
   <property name="zpulleyden" type="float" value="1.0"/>
