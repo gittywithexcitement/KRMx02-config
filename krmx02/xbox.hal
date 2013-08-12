@@ -23,29 +23,28 @@ setp input.0.abs-y-scale -32767.5
 # Back button engages E stop.
 # Start button turns E stop off, then turns machine on.
 
-loadrt or2 	count=6
+loadrt or2	names=y-or-a,a-or-b,x-or-y,any-increment-pressed
 loadrt toggle 	count=1
 loadrt near count=9
-loadrt and2 count=6
-loadrt mux2 count=3
-loadrt mux4 count=1
-loadrt mux8 count=1
+loadrt and2 names=x-pos-and-any-inc,x-neg-and-any-inc,y-pos-and-any-inc,y-neg-and-any-inc,z-pos-and-any-inc,z-neg-and-any-inc
+loadrt mux2 names=jog-speed-choice,x-analog-choice,y-analog-choice,z-analog-choice
+loadrt mux4 names=cont-jog-speed
+loadrt mux8 names=incremental-move-size
 loadrt not 	names=left-z-pressed,right-z-pressed
 loadrt scale 		names=cont-jog-scale,decrease-z-speed
 loadrt joyhandle 	names=slow-joy,fast-joy
 
-addf or2.0 servo-thread
-addf or2.1 servo-thread
-addf or2.2 servo-thread
-addf or2.3 servo-thread
-addf or2.4 servo-thread
-addf or2.5 servo-thread
-addf mux8.0 servo-thread
+addf y-or-a servo-thread
+addf a-or-b servo-thread
+addf x-or-y servo-thread
+addf any-increment-pressed servo-thread
+addf incremental-move-size servo-thread
 addf toggle.0 servo-thread
-addf mux2.0 servo-thread
-addf mux2.1 servo-thread
-addf mux2.2 servo-thread
-addf mux4.0 servo-thread
+addf jog-speed-choice servo-thread
+addf x-analog-choice servo-thread
+addf y-analog-choice servo-thread
+addf z-analog-choice servo-thread
+addf cont-jog-speed servo-thread
 addf near.0 servo-thread
 addf near.1 servo-thread
 addf near.2 servo-thread
@@ -55,12 +54,12 @@ addf near.5 servo-thread
 addf near.6 servo-thread
 addf near.7 servo-thread
 addf near.8 servo-thread
-addf and2.0 servo-thread
-addf and2.1 servo-thread
-addf and2.2 servo-thread
-addf and2.3 servo-thread
-addf and2.4 servo-thread
-addf and2.5 servo-thread
+addf x-pos-and-any-inc servo-thread
+addf y-pos-and-any-inc servo-thread
+addf z-pos-and-any-inc servo-thread
+addf x-neg-and-any-inc servo-thread
+addf y-neg-and-any-inc servo-thread
+addf z-neg-and-any-inc servo-thread
 addf left-z-pressed servo-thread
 addf right-z-pressed servo-thread
 addf cont-jog-scale servo-thread
@@ -86,37 +85,34 @@ setp near.4.scale 1.03
 setp near.5.scale 1.03
 
 # set the size of incremental moves in units
-setp mux8.0.in0 0  # this one must be 0 to prevent motion unless a button is pressed
-setp mux8.0.in1 .005 #TODO set this to smallest movement increment
-setp mux8.0.in2 .01
-setp mux8.0.in3 .02
-setp mux8.0.in4 .04
-setp mux8.0.in5 0
-setp mux8.0.in6 0
-setp mux8.0.in7 0
+setp incremental-move-size.in0 0  # this one must be 0 to prevent motion unless a button is pressed
+setp incremental-move-size.in1 .005 #TODO set this to smallest movement increment
+setp incremental-move-size.in2 .01
+setp incremental-move-size.in3 .02
+setp incremental-move-size.in4 .04
+setp incremental-move-size.in5 0
+setp incremental-move-size.in6 0
+setp incremental-move-size.in7 0
 
 # set incremental jog size
 # Y or A
-net btn-y or2.0.in0 <= input.0.btn-y
-net btn-a or2.0.in1 <= input.0.btn-a
+net btn-y y-or-a.in0 <= input.0.btn-y
+net btn-a y-or-a.in1 <= input.0.btn-a
 # A or B
-net btn-a or2.1.in0
-net btn-b or2.1.in1 <= input.0.btn-b
+net btn-a => a-or-b.in0
+net btn-b a-or-b.in1 <= input.0.btn-b
 # setup the mux
-net jog-size-0 mux8.0.sel0 <= or2.0.out 	# Y or A
-net jog-size-1 mux8.0.sel1 <= or2.1.out 	# A or B
-net btn-x mux8.0.sel2 <= input.0.btn-x		# X
+net jog-size-0 incremental-move-size.sel0 <= y-or-a.out 	# Y or A
+net a-or-b-out incremental-move-size.sel1 <= a-or-b.out 	# A or B
+net btn-x incremental-move-size.sel2 <= input.0.btn-x		# X
 # use mux to select increment size
-net jog-size-final halui.jog.0.increment halui.jog.1.increment halui.jog.2.increment <= mux8.0.out
+net jog-size-final halui.jog.0.increment halui.jog.1.increment halui.jog.2.increment <= incremental-move-size.out
 
-# move incremental if any of X,Y,A,B is pressed
-net btn-a or2.2.in0
-net btn-b or2.2.in1
-net btn-x or2.3.in0
-net btn-y or2.3.in1
-net depressed-ab or2.4.in0 <= or2.2.out
-net depressed-xy or2.4.in1 <= or2.3.out
-# or2.4 is true if any of X,Y,A,B is pressed
+# any-increment-pressed is true if any of X,Y,A,B is pressed
+net btn-x x-or-y.in0
+net btn-y x-or-y.in1
+net a-or-b-out => any-increment-pressed.in0
+net depressed-xy any-increment-pressed.in1 <= x-or-y.out
 
 # read joystick positions and check if near min or max
 net joy-x-sig near.0.in2 near.3.in2 <= input.0.abs-rx-position
@@ -124,40 +120,28 @@ net joy-y-sig near.1.in2 near.4.in2 <= input.0.abs-ry-position
 net joy-z-sig near.2.in2 near.5.in2 <= input.0.abs-y-position
 
 # if joystick near min/max and X,Y,A, or B pressed, then send incremental jog
-net jogincx and2.0.in0 <= near.0.out
-net jogincy and2.1.in0 <= near.1.out
-net jogincz and2.2.in0 <= near.2.out
-net jogincxn and2.3.in0 <= near.3.out
-net jogincyn and2.4.in0 <= near.4.out
-net joginczn and2.5.in0 <= near.5.out
+net jogincx x-pos-and-any-inc.in0 <= near.0.out
+net jogincy y-pos-and-any-inc.in0 <= near.1.out
+net jogincz z-pos-and-any-inc.in0 <= near.2.out
+net jogincxn x-neg-and-any-inc.in0 <= near.3.out
+net jogincyn y-neg-and-any-inc.in0 <= near.4.out
+net joginczn z-neg-and-any-inc.in0 <= near.5.out
 
 # and will be true if joystick near min/max and X,Y,A, or B pressed
-net jog-inc-enable or2.4.out => and2.0.in1 and2.1.in1 and2.2.in1 and2.3.in1 and2.4.in1 and2.5.in1
+net jog-inc-enable any-increment-pressed.out => x-pos-and-any-inc.in1 y-pos-and-any-inc.in1 z-pos-and-any-inc.in1 x-neg-and-any-inc.in1 y-neg-and-any-inc.in1 z-neg-and-any-inc.in1
 
 # To change the direction of incremental move (e.g. if moves opposite to desired) just change the plus and minus portion of halui.jog.N.increment-(plus or minus)
 
 # and2 outputs to halui incremental jog
-net jogincx_final halui.jog.0.increment-plus <= and2.0.out
-net jogincy_final halui.jog.1.increment-plus <= and2.1.out
-net jogincz_final halui.jog.2.increment-plus <= and2.2.out
-net jogincxn_final halui.jog.0.increment-minus <= and2.3.out
-net jogincyn_final halui.jog.1.increment-minus <= and2.4.out
-net joginczn_final halui.jog.2.increment-minus <= and2.5.out
+net jogincx_final halui.jog.0.increment-plus <= x-pos-and-any-inc.out
+net jogincy_final halui.jog.1.increment-plus <= y-pos-and-any-inc.out
+net jogincz_final halui.jog.2.increment-plus <= z-pos-and-any-inc.out
+net jogincxn_final halui.jog.0.increment-minus <= x-neg-and-any-inc.out
+net jogincyn_final halui.jog.1.increment-minus <= y-neg-and-any-inc.out
+net joginczn_final halui.jog.2.increment-minus <= z-neg-and-any-inc.out
 
 
 ##### Continuous jog #####
-# mux between 0 and joystick
-# mux's in0 is joystick position
-net joy-x-sig => mux2.0.in0
-net joy-y-sig => mux2.1.in0
-net joy-z-sig => mux2.2.in0
-# speed is 0 when using incremental jog
-setp mux2.0.in1 0
-setp mux2.1.in1 0
-setp mux2.2.in1 0
-# if X,Y,A, or B is pressed then mux outputs 0 speed
-net jog-inc-enable mux2.0.sel mux2.1.sel mux2.2.sel
-
 #TODO move Z to D pad, and XY to left joystick
 
 # setup near to detect when L and R triggers are pressed (> 0)
@@ -178,12 +162,7 @@ setp near.8.difference .1
 net left-z-zeroed 	near.7.out => left-z-pressed.in
 net right-z-zeroed	near.8.out => right-z-pressed.in
 
-# neither trigger pressed uses default value
-# if left z is pressed then in1/in3 is chosen, if right z then in2
-net m4s0 left-z-pressed.out 	=> mux4.0.sel0
-net m4s1 right-z-pressed.out 	=> mux4.0.sel1
-
-# feed position of L trigger through joyhandle. pos=0 -> gain=1. pos=1 -> gain=0
+# feed position of L trigger through joyhandle. pos=0 -> gain=0.0 pos=1 -> gain=0.5
 net left-z-pos => slow-joy.in
 # a power of 1 makes it linear
 # inverted = true means mirror around the y=x line
@@ -191,14 +170,16 @@ net left-z-pos => slow-joy.in
 #power=4 invert=1 --> in=.5 out=.07
 # increase power to make the trigger spend more time in the slower portions of its curve, i.e. more sensitive in the slow zone
 setp slow-joy.power 3
-setp slow-joy.offset 1
-setp slow-joy.scale -1
-setp slow-joy.inverse 1
-# unset parameters
+setp slow-joy.offset 0
+# this determines the maximum speed of slow jog
+setp slow-joy.scale 1
+setp slow-joy.inverse 0
+# parameters that I have left unset
 # joyhandle.N.deadband float rw (default: 0.)
 
+#TODO fine tune fast and slow speed, including power parameter
+
 # feed position of R trigger through joyhandle. pos=0 -> gain=1. pos=1 -> gain=4
-#TODO fine tune fast speed
 net right-z-pos => fast-joy.in
 # increase power to make the trigger spend more time in the slower portions of its curve, i.e. more sensitive in the slow zone
 setp fast-joy.power 2.5
@@ -207,27 +188,43 @@ setp fast-joy.offset 1
 setp fast-joy.scale 5
 setp fast-joy.inverse 0
 
-# neither trigger pressed means use default value - scale by 1
-setp mux4.0.in0 1
-net slow-gain mux4.0.in1 mux4.0.in3 <= slow-joy.out
-net fast-gain mux4.0.in2 <= fast-joy.out
+# cont-jog-speed is a mux that chooses the max speed of continuous jog. It's 0 when incremental jog is on, and if both slow trigger and fast trigger are pressed, it prefers the slow trigger
+net fast-gain cont-jog-speed.in0 <= fast-joy.out
+setp cont-jog-speed.in1 0
+setp cont-jog-speed.in3 0
+net slow-gain cont-jog-speed.in2 <= slow-joy.out
+net jog-inc-enable => cont-jog-speed.sel0
+net cjss1 cont-jog-speed.sel1 <= left-z-pressed.out
 
-# this defines the default continuous jog speed
+# this defines the base continuous jog speed
 setp cont-jog-scale.in 100
-# the L&R triggers determine the gain
-net scale-gain cont-jog-scale.gain <= mux4.0.out
+# the L & R triggers determine the gain
+net scale-gain cont-jog-scale.gain <= cont-jog-speed.out
 setp cont-jog-scale.offset 0
 # gain * 100 IPM is max continuous jog speed (which is then multiplied by analog joystick value to get actual jog speed)
-net jog-speed halui.jog-speed <= cont-jog-scale.out
 
-# send continuous jog signal based on analog value of XY joystick
-net joy-x-jog halui.jog.0.analog <= mux2.0.out
-net joy-y-jog halui.jog.1.analog <= mux2.1.out
-# set Z speed to half of XY speed
-net zssi decrease-z-speed.in <= mux2.2.out
-setp decrease-z-speed.gain .5
+# halui.jog-speed should be set to a nonzero value for incremental jog to work. So we mux between cont-jog-scale and a constant value
+net cjso jog-speed-choice.in0 <= cont-jog-scale.out
+setp jog-speed-choice.in1 50
+net jog-inc-enable => jog-speed-choice.sel
+net jog-speed halui.jog-speed <= jog-speed-choice.out
+
+# set Z speed to 1/4 of XY speed
+net joy-z-sig => decrease-z-speed.in
+setp decrease-z-speed.gain .25
 setp decrease-z-speed.offset 0
-net joy-z-jog halui.jog.2.analog <= decrease-z-speed.out
+
+# jog.N.analog should be 0 during incremental jog, and the controller's value otherwise
+net joy-x-sig => x-analog-choice.in0
+net joy-y-sig => y-analog-choice.in0
+net dzso decrease-z-speed.out => z-analog-choice.in0
+setp x-analog-choice.in1 0
+setp y-analog-choice.in1 0
+setp z-analog-choice.in1 0
+net jog-inc-enable => x-analog-choice.sel y-analog-choice.sel z-analog-choice.sel
+net xaco x-analog-choice.out => halui.jog.0.analog
+net yaco y-analog-choice.out => halui.jog.1.analog
+net zaco z-analog-choice.out => halui.jog.2.analog
 
 # back button turns ESTOP on
 net set-ESTOP input.0.btn-back 	=> halui.estop.activate
@@ -245,7 +242,3 @@ net home halui.joint.selected.home <= input.0.btn-tr
 net btn-x halui.joint.0.select
 net btn-y halui.joint.1.select
 net btn-b halui.joint.2.select
-
-# TODO default jog speed is 0. left button goes from 0 to 50 but spends most of its time in the slow zone. right button starts at 50 and goes to 600 or so, spending more of its time in the slow zone.
-
-#TODO incremental jog of 1 inch is pretty much worthless
