@@ -21,8 +21,8 @@
   <property name="customhal" type="int" value="1"/>
   <property name="digitsin" type="float" value="15.0"/>
   <property name="digitsout" type="float" value="15.0"/>
-  <property name="dirhold" type="float" value="200000.0"/>
-  <property name="dirsetup" type="float" value="200000.0"/>
+  <property name="dirhold" type="float" value="20000.0"/>
+  <property name="dirsetup" type="float" value="20000.0"/>
   <property name="drivertype" type="string" value="other"/>
   <property name="floatsin" type="float" value="10.0"/>
   <property name="floatsout" type="float" value="10.0"/>
@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="4100.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', 'e60a7e0e1f9954e24f5f6c36b2cbc444'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '5790709fe1697c90c0b25a8897b42b39'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '2bbaed408432f47ff0011b33dc290e99')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '299d4a711fd827d993a8996aa4f07bb7'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '5279f552a37e2b9fb33e036db1d2b04c'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '64f705ba3756bac115f3bc82d4e41525')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
