@@ -1,25 +1,18 @@
+## dan's xbox controller file
+
 loadusr -W hal_input X-Box
 
-## pippin88's custom_postgui.hal file
-## pippin88@imagineant.com
-## customised for generic X-Box controller from Ebay
-## Based on:
-## http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Simple_Remote_Pendant
-## http://wiki.linuxcnc.org/cgi-bin/wiki.pl?Adding_More_Controls_To_Simple_Remote_Pendant
-## need linuxcnc 2.5 or better
-
 # values < 6000 become 0
-setp input.0.abs-rx-flat 6000
-setp input.0.abs-ry-flat 6000
+setp input.0.abs-x-flat 6000
 setp input.0.abs-y-flat 6000
 
 # invert z and y axis
-setp input.0.abs-ry-scale -32767.5
 setp input.0.abs-y-scale -32767.5
+setp input.0.abs-hat0y-scale -1
 
-# Left trigger slows the jog speed down. Right trigger speeds up jog.
+# Left trigger is slow jog. Right trigger is fast jog.
 # X,Y,A,B buttons, while held, are incremental movement at varying speeds.
-# Left joystick is Z, right joystick is X,Y
+# Left joystick is X,Y. Left D pad is Z.
 # Back button engages E stop.
 # Start button turns E stop off, then turns machine on.
 
@@ -118,9 +111,6 @@ net depressed-xy any-increment-pressed.in1 <= x-or-y.out
 net joy-x-sig near.0.in2 near.3.in2 <= input.0.abs-x-position
 net joy-y-sig near.1.in2 near.4.in2 <= input.0.abs-y-position
 net joy-z-sig near.2.in2 near.5.in2 <= input.0.abs-hat0y-position
-
-# flip Z orientation
-setp input.0.abs-hat0y-scale -1
 
 # if joystick near min/max and X,Y,A, or B pressed, then send incremental jog
 net jogincx x-pos-and-any-inc.in0 <= near.0.out
