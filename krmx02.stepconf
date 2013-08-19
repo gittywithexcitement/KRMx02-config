@@ -33,10 +33,10 @@
   <property name="ladderconnect" type="bool" value="True"/>
   <property name="ladderhaltype" type="int" value="0"/>
   <property name="laddername" type="string" value="custom.clp"/>
-  <property name="latency" type="float" value="4100.0"/>
+  <property name="latency" type="float" value="3800.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', 'd6b7b85c00b21f9a4a487ccc4728295b'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '2c76720416661746ff4d5e37fb048606'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'b1691a379d77cabae6166b74f58aa6dc')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '56338b1f637c6071b3c36dc373998194'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'ba84bb474dfcced61cbe95b88f10e251'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'd4db63e6d983dc9cb32a4011169b2d2d')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -95,9 +95,9 @@
   <property name="tempexists" type="int" value="0"/>
   <property name="units" type="int" value="0"/>
   <property name="usespindleatspeed" type="bool" value="False"/>
-  <property name="xhomepos" type="float" value="0.0"/>
+  <property name="xhomepos" type="float" value="1.0"/>
   <property name="xhomesw" type="float" value="0.0"/>
-  <property name="xhomevel" type="float" value="0.05"/>
+  <property name="xhomevel" type="float" value="-0.2"/>
   <property name="xlatchdir" type="int" value="0"/>
   <property name="xleadscrew" type="float" value="0.318309886184"/>
   <property name="xmaxacc" type="float" value="20.0"/>
@@ -109,9 +109,9 @@
   <property name="xpulleynum" type="float" value="60.0"/>
   <property name="xscale" type="float" value="1909.8593171"/>
   <property name="xsteprev" type="float" value="200.0"/>
-  <property name="yhomepos" type="float" value="0.0"/>
+  <property name="yhomepos" type="float" value="1.0"/>
   <property name="yhomesw" type="float" value="0.0"/>
-  <property name="yhomevel" type="float" value="0.05"/>
+  <property name="yhomevel" type="float" value="-0.2"/>
   <property name="ylatchdir" type="int" value="0"/>
   <property name="yleadscrew" type="float" value="0.318309886184"/>
   <property name="ymaxacc" type="float" value="20.0"/>
@@ -125,7 +125,7 @@
   <property name="ysteprev" type="float" value="200.0"/>
   <property name="zhomepos" type="float" value="4.0"/>
   <property name="zhomesw" type="float" value="7.0"/>
-  <property name="zhomevel" type="float" value="0.05"/>
+  <property name="zhomevel" type="float" value="0.2"/>
   <property name="zlatchdir" type="int" value="0"/>
   <property name="zleadscrew" type="float" value="2.0"/>
   <property name="zmaxacc" type="float" value="20.0"/>
