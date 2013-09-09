@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="3800.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '36bd2d4246e63d07908b9b3a29d93f89'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'a45e024a317a9ce2e552cc617da18d7c'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'a5828dfa3a7df1a6fc404d1c2f14bc3e')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', 'c270a866984398ca8e4f53eb21b44e46'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'ae6c667fa4d9ff84a18e710d12242d81'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'f216354e3fd7d367b8ad18e1e753836d')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -55,7 +55,7 @@
   <property name="pin15inv" type="bool" value="True"/>
   <property name="pin16" type="string" value="charge-pump"/>
   <property name="pin16inv" type="bool" value="False"/>
-  <property name="pin17" type="string" value="unused-output"/>
+  <property name="pin17" type="string" value="spindle-on"/>
   <property name="pin17inv" type="bool" value="False"/>
   <property name="pin1inv" type="bool" value="False"/>
   <property name="pin2" type="string" value="xstep"/>
