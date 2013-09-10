@@ -1,4 +1,11 @@
-## dan's xbox controller file
+## Dan's xbox controller file
+## Left trigger is slow jog. Right trigger is fast jog.
+## X,Y,A,B buttons, while held, are incremental movement at varying speeds.
+## Left joystick is X,Y. Left D pad is Z.
+## Back button engages E stop.
+## Start button turns E stop off, then turns machine on.
+## Left shoulder button and X, Y, or B (corresponding to Z axis) touches off selected axis (zeros G54 to current position)
+## Right shoulder button starts the homing sequence
 
 loadusr -W hal_input X-Box
 
@@ -9,15 +16,6 @@ setp input.0.abs-y-flat 6000
 # invert z and y axis
 setp input.0.abs-y-scale -32767.5
 setp input.0.abs-hat0y-scale -1
-
-# Left trigger is slow jog. Right trigger is fast jog.
-# X,Y,A,B buttons, while held, are incremental movement at varying speeds.
-# Left joystick is X,Y. Left D pad is Z.
-# Back button engages E stop.
-# Start button turns E stop off, then turns machine on.
-# Left shoulder button and X, Y, or B (corresponding to Z axis) touches off selected axis (zeros G54 to current position)
-# Right shoulder button starts the homing sequence
-
 
 loadrt or2	names=y-or-a,a-or-b,x-or-y,any-increment-pressed
 loadrt toggle 	count=1
