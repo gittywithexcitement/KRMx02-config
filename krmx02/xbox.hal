@@ -15,6 +15,9 @@ setp input.0.abs-hat0y-scale -1
 # Left joystick is X,Y. Left D pad is Z.
 # Back button engages E stop.
 # Start button turns E stop off, then turns machine on.
+# Left shoulder button touches off selected axis
+# Right shoulder button starts the homing sequence
+
 
 loadrt or2	names=y-or-a,a-or-b,x-or-y,any-increment-pressed
 loadrt toggle 	count=1
@@ -224,10 +227,11 @@ net unset-ESTOP input.0.btn-start => halui.estop.reset halui.machine.on
 
 # TODO can use big central (mode) button for something
 
-# LB unhomes selected axis
+# LB touches off selected axis
+# TODO
 net unhome halui.joint.selected.unhome <= input.0.btn-tl
-# RB homes selected axis
-net home halui.joint.selected.home <= input.0.btn-tr
+# RB starts the homing sequence
+net homeall halui.home-all <= input.0.btn-tr
 
 # XYB buttons select XYZ axes for homing purposes
 net btn-x halui.joint.0.select
