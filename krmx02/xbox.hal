@@ -15,14 +15,14 @@ setp input.0.abs-hat0y-scale -1
 # Left joystick is X,Y. Left D pad is Z.
 # Back button engages E stop.
 # Start button turns E stop off, then turns machine on.
-# Left shoulder button touches off selected axis
+# Left shoulder button and X, Y, or B (corresponding to Z axis) touches off selected axis (zeros G54 to current position)
 # Right shoulder button starts the homing sequence
 
 
 loadrt or2	names=y-or-a,a-or-b,x-or-y,any-increment-pressed
 loadrt toggle 	count=1
 loadrt near count=9
-loadrt and2 names=x-pos-and-any-inc,x-neg-and-any-inc,y-pos-and-any-inc,y-neg-and-any-inc,z-pos-and-any-inc,z-neg-and-any-inc
+loadrt and2 names=x-pos-and-any-inc,x-neg-and-any-inc,y-pos-and-any-inc,y-neg-and-any-inc,z-pos-and-any-inc,z-neg-and-any-inc,x-and-lb,y-and-lb,b-and-lb
 loadrt mux2 names=jog-speed-choice,x-analog-choice,y-analog-choice,z-analog-choice
 loadrt mux4 names=cont-jog-speed
 loadrt mux8 names=incremental-move-size
@@ -56,6 +56,9 @@ addf z-pos-and-any-inc servo-thread
 addf x-neg-and-any-inc servo-thread
 addf y-neg-and-any-inc servo-thread
 addf z-neg-and-any-inc servo-thread
+addf x-and-lb servo-thread
+addf y-and-lb servo-thread
+addf b-and-lb servo-thread
 addf left-z-pressed servo-thread
 addf right-z-pressed servo-thread
 addf cont-jog-scale servo-thread
@@ -227,9 +230,15 @@ net unset-ESTOP input.0.btn-start => halui.estop.reset halui.machine.on
 
 # TODO can use big central (mode) button for something
 
-# LB touches off selected axis
-# TODO
-net unhome halui.joint.selected.unhome <= input.0.btn-tl
+# LB and the X,Y,or B (corresponds to Z) touches off selected axis
+net btn-x => x-and-lb.in0
+net btn-y => y-and-lb.in0
+net btn-b => b-and-lb.in0
+net btm-tl input.0.btn-tl => x-and-lb.in1 y-and-lb.in1 b-and-lb.in1
+net xalo x-and-lb.out => halui.mdi-command-00
+net yalo y-and-lb.out => halui.mdi-command-01
+net balo b-and-lb.out => halui.mdi-command-02
+
 # RB starts the homing sequence
 net homeall halui.home-all <= input.0.btn-tr
 
