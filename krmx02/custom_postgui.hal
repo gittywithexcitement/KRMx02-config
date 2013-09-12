@@ -20,8 +20,6 @@ net z-touchoff classicladder.0.out-00 => halui.mdi-command-03
 net z-zero classicladder.0.out-01 => halui.mdi-command-04
 
 #TODO why commented out?
+#I think this rapids away from probe after classic ladder is done.
 # mdi command 3 MDI_COMMAND = G0 Z1
 #net rapid-away classicladder.0.out-02 => halui.mdi-command-05
-
-# mdi command 4 MDI_COMMAND = G0 X-2 Y1
-net zero-x-y pyvcp.x-y_zero => halui.mdi-command-06
