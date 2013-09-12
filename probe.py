@@ -36,46 +36,58 @@ MDI_DURATION=1
 # MDI_DURATION=0.001
 SHORT_SLEEP=0.01
 
-# current values
+# Periodically, usually in response to a timer, all HAL_OUT pins should be "driven" by assigning
+# them a new value. This should be done whether or not the value is different than the last one
+# assigned. When a pin is connected to a signal, its old output value is not copied into the signal,
+# so the proper value will only appear on the signal once the component assigns a new value.
 cv = {}
 
 def init():
-	h['mdi-g54z0'] = False
-	h['mdi-g38fast'] = False
-	h['mdi-backoff-tiny'] = False
-	h['mdi-g38slow'] = False
-	h['mdi-backoff-final'] = False
+	cv['mdi-g54z0'] = False
+	cv['mdi-g38fast'] = False
+	cv['mdi-backoff-tiny'] = False
+	cv['mdi-g38slow'] = False
+	cv['mdi-backoff-final'] = False
+	writeOutputs()
 
-	# set these to false for good measure
-	h['in-position'] = False
-	h['z-touch-off'] = False
+	# # set these to false for good measure
+	# h['in-position'] = False
+	# h['z-touch-off'] = False
 
-def setFor(signal, value, sleepTime):
-	old = signal
-	signal = value
-	print(signal)
-	print(value)
+def setFor(outName, value, sleepTime):
+	old = cv[outName]
+	h[outName] = value
+	cv[outName] = value
 	time.sleep(sleepTime)
-	signal = old
+
+	h[outName] = old
+	cv[outName] = old
+
+def writeOutputs():
+	for k, v in cv.iteritems():
+		h[k] = v
 
 def waitForBegin():
 	while not (h['z-touch-off'] and h['in-position']):
 		time.sleep(SHORT_SLEEP)
-	setFor(h['mdi-g54z0'], True, MDI_DURATION)
-	setFor(h['mdi-g38fast'], True, MDI_DURATION)
+		writeOutputs()
+	setFor('mdi-g54z0', True, MDI_DURATION)
+	setFor('mdi-g38fast', True, MDI_DURATION)
 
 def waitForFirstContact():
 	while not (h['in-position']):
 		time.sleep(SHORT_SLEEP)
-	setFor(h['mdi-backoff-tiny'], True, MDI_DURATION)
+		writeOutputs()
+	setFor('mdi-backoff-tiny', True, MDI_DURATION)
 	while not (h['in-position']):
 		time.sleep(SHORT_SLEEP)
-	setFor(h['mdi-g38slow'], True, MDI_DURATION)
+	setFor('mdi-g38slow', True, MDI_DURATION)
 
 def waitForSecondContact():
 	while not (h['in-position']):
 		time.sleep(SHORT_SLEEP)
-	setFor(h['mdi-backoff-final'], True, MDI_DURATION)
+		writeOutputs()
+	setFor('mdi-backoff-final', True, MDI_DURATION)
 
 try:
 	init()
