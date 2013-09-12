@@ -1,21 +1,11 @@
 # Include your customized HAL commands here
 # The commands in this file are run after the AXIS GUI (including PyVCP panel) starts
 
-# set up the z-axis touchoff button
-net remote-z-axis-touchoff classicladder.0.in-00 <= pyvcp.z-axis-touchoff
-
-# set to mdi mode
-# show pin
-net mode halui.mode.is-mdi => classicladder.0.in-01
-
-# wait for motion to finish
-net in_pos motion.in-position => classicladder.0.in-02
-
-# G38.2 Z0 f16
-net z-touchoff classicladder.0.out-00 => halui.mdi-command-03
-
-# G10 L20 P1 Z2.255
-net z-zero classicladder.0.out-01 => halui.mdi-command-04
-
-# G0 Z3
-net clear-z classicladder.0.out-02 => halui.mdi-command-05
+##### Z probe touch off #####
+net pzat pyvcp.z-axis-touchoff => probe-touchoff.start
+net mip motion.in-position => probe-touchoff.in-position
+net pm3 probe-touchoff.mdi-g54z0 => halui.mdi-command-03
+net pm4 probe-touchoff.mdi-g38fast => halui.mdi-command-04
+net pm5 probe-touchoff.mdi-backoff-tiny => halui.mdi-command-05
+net pm6 probe-touchoff.mdi-g38slow => halui.mdi-command-06
+net pm7 probe-touchoff.mdi-backoff-final => halui.mdi-command-07

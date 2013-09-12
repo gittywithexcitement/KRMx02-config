@@ -22,8 +22,8 @@
 
 import hal, time
 
-h = hal.component("z-probe")
-h.newpin("z-touch-off", hal.HAL_BIT, hal.HAL_IN)
+h = hal.component("probe-touchoff")
+h.newpin("start", hal.HAL_BIT, hal.HAL_IN)
 h.newpin("in-position", hal.HAL_BIT, hal.HAL_IN)
 h.newpin("mdi-g54z0", hal.HAL_BIT, hal.HAL_OUT)
 h.newpin("mdi-g38fast", hal.HAL_BIT, hal.HAL_OUT)
@@ -32,9 +32,9 @@ h.newpin("mdi-g38slow", hal.HAL_BIT, hal.HAL_OUT)
 h.newpin("mdi-backoff-final", hal.HAL_BIT, hal.HAL_OUT)
 h.ready()
 
-MDI_DURATION=1
-# MDI_DURATION=0.001
-SHORT_SLEEP=0.01
+# MDI_DURATION=1
+MDI_DURATION=0.1
+SHORT_SLEEP=0.1
 
 # Periodically, usually in response to a timer, all HAL_OUT pins should be "driven" by assigning
 # them a new value. This should be done whether or not the value is different than the last one
@@ -52,9 +52,11 @@ def init():
 
 	# # set these to false for good measure
 	# h['in-position'] = False
-	# h['z-touch-off'] = False
+	# h['start'] = False
 
 def setFor(outName, value, sleepTime):
+	# TODO print out to file for debugging help
+	print('set {0} to {1} and sleep for {2}'.format(outName, value, sleepTime))
 	old = cv[outName]
 	h[outName] = value
 	cv[outName] = value
@@ -68,7 +70,7 @@ def writeOutputs():
 		h[k] = v
 
 def waitForBegin():
-	while not (h['z-touch-off'] and h['in-position']):
+	while not (h['start'] and h['in-position']):
 		time.sleep(SHORT_SLEEP)
 		writeOutputs()
 	setFor('mdi-g54z0', True, MDI_DURATION)
