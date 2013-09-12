@@ -1,6 +1,7 @@
 # Include your customized HAL commands here
 # This file will not be overwritten when you run stepconf again
 
+##### Router Relay #####
 # The router takes a little bit of time to reach speed after it's powered on by the relay.
 loadrt timedelay	names=spindleSpeedDelay
 addf spindleSpeedDelay 	servo-thread
@@ -9,3 +10,9 @@ net spindle-on => spindleSpeedDelay.in
 net foo spindleSpeedDelay.out => motion.spindle-at-speed
 setp spindleSpeedDelay.on-delay 1.1
 setp spindleSpeedDelay.off-delay 0
+
+
+##### Touch off Z #####
+#loadrt classicladder_rt
+#addf classicladder.0.refresh servo-thread
+loadusr -w classicladder --nogui Touch_OFF_Button.clp
