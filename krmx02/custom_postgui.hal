@@ -3,6 +3,7 @@
 
 # set up the z-axis touchoff button
 net remote-z-axis-touchoff classicladder.0.in-00 <= pyvcp.z-axis-touchoff
+
 # set to mdi mode
 # show pin
 net mode halui.mode.is-mdi => classicladder.0.in-01
@@ -10,16 +11,11 @@ net mode halui.mode.is-mdi => classicladder.0.in-01
 # wait for motion to finish
 net in_pos motion.in-position => classicladder.0.in-02
 
-# TODO
-#Note: The mentioned thread on cnczone.com says that instead of the G92 command it recommended to use G10 L20 P0. Next article on that.
-
-# mdi command 1 MDI_COMMAND = G38.2 Z-3 F16
+# G38.2 Z0 f16
 net z-touchoff classicladder.0.out-00 => halui.mdi-command-03
 
-# mdi command 2 MDI_COMMAND = G92 Z0.25
+# G10 L20 P1 Z2.255
 net z-zero classicladder.0.out-01 => halui.mdi-command-04
 
-#TODO why commented out?
-#I think this rapids away from probe after classic ladder is done.
-# mdi command 3 MDI_COMMAND = G0 Z1
-#net rapid-away classicladder.0.out-02 => halui.mdi-command-05
+# G0 Z3
+net clear-z classicladder.0.out-02 => halui.mdi-command-05
