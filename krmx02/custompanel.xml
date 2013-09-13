@@ -4,10 +4,15 @@ Include your PyVCP panel here.
 The contents of this file will not be overwritten when you run stepconf again.
 -->
 <pyvcp>
-	<labelframe text="Zero Axes">
+	<labelframe text="Probe to zero Z">
 		<button>
 		<halpin>"z-axis-touchoff"</halpin>
 		<text>"Z-Axis Touchoff"</text>
+		<font>('Fixed',12)</font>
+		</button>
+		<button>
+		<halpin>"xy-to-probe"</halpin>
+		<text>"XY to probe"</text>
 		<font>('Fixed',12)</font>
 		</button>
 	</labelframe>

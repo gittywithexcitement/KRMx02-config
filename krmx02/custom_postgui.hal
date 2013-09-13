@@ -9,3 +9,6 @@ net pm4 probe-touchoff.mdi-g38fast => halui.mdi-command-04
 net pm5 probe-touchoff.mdi-backoff-tiny => halui.mdi-command-05
 net pm6 probe-touchoff.mdi-g38slow => halui.mdi-command-06
 net pm7 probe-touchoff.mdi-backoff-final => halui.mdi-command-07
+
+# move XY axes over probe
+net foo pyvcp.xy-to-probe => halui.mdi-command-08
