@@ -15,8 +15,16 @@ setp spindleSpeedDelay.off-delay 0
 #--nogui
 loadusr -w classicladder --nogui custom.clp
 
+net inpos motion.in-position => classicladder.0.in-01
+
 # set G54 Z offset to 0
 net g54z0 classicladder.0.out-00 => halui.mdi-command-03
+
 # probe down fast
-net g38fast classicladder.0.out-01 => halui.mdi-command-04
-net inpos motion.in-position => classicladder.0.in-01
+net pdf classicladder.0.out-01 => halui.mdi-command-04
+
+# probe up slower
+net pus classicladder.0.out-02 => halui.mdi-command-05
+
+# probe down slowest
+net pds classicladder.0.out-03 => halui.mdi-command-06
