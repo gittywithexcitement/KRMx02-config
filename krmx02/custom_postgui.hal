@@ -2,13 +2,7 @@
 # The commands in this file are run after the AXIS GUI (including PyVCP panel) starts
 
 ##### Z probe touch off #####
-net pzat pyvcp.z-axis-touchoff => probe-touchoff.start
-net mip motion.in-position => probe-touchoff.in-position
-net pm3 probe-touchoff.mdi-g54z0 => halui.mdi-command-03
-net pm4 probe-touchoff.mdi-g38fast => halui.mdi-command-04
-net pm5 probe-touchoff.mdi-backoff-tiny => halui.mdi-command-05
-net pm6 probe-touchoff.mdi-g38slow => halui.mdi-command-06
-net pm7 probe-touchoff.mdi-backoff-final => halui.mdi-command-07
+net pzat pyvcp.z-axis-touchoff => classicladder.0.in-00
 
 # move XY axes over probe
-net foo pyvcp.xy-to-probe => halui.mdi-command-08
+net foo pyvcp.xy-to-probe => halui.mdi-command-09
