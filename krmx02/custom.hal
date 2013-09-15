@@ -1,11 +1,36 @@
 # Include your customized HAL commands here
 # This file will not be overwritten when you run stepconf again
 
+##### Router Relay #####
 # The router takes a little bit of time to reach speed after it's powered on by the relay.
 loadrt timedelay	names=spindleSpeedDelay
 addf spindleSpeedDelay 	servo-thread
 
 net spindle-on => spindleSpeedDelay.in
-net foo spindleSpeedDelay.out => motion.spindle-at-speed
+net ssdo spindleSpeedDelay.out => motion.spindle-at-speed
 setp spindleSpeedDelay.on-delay 1.1
 setp spindleSpeedDelay.off-delay 0
+
+##### Z probe touch off #####
+#--nogui -w
+loadusr classicladder --nogui custom.clp
+
+net inpos motion.in-position => classicladder.0.in-01
+
+# set G54 Z offset to 0
+net g54z0 classicladder.0.out-00 => halui.mdi-command-03
+
+# probe down fast
+net pdf classicladder.0.out-01 => halui.mdi-command-04
+
+# probe up slower
+net pus classicladder.0.out-02 => halui.mdi-command-05
+
+# probe down slowest
+net pds classicladder.0.out-03 => halui.mdi-command-06
+
+# set Z in G54 to probe switch height
+net spsh classicladder.0.out-04 => halui.mdi-command-07
+
+# rapid up so that operator can remove depth probe
+net rurdp classicladder.0.out-05 => halui.mdi-command-08
