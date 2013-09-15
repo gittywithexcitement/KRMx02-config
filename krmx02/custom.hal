@@ -12,8 +12,8 @@ setp spindleSpeedDelay.on-delay 1.1
 setp spindleSpeedDelay.off-delay 0
 
 ##### Z probe touch off #####
-#--nogui
-loadusr -w classicladder --nogui custom.clp
+#--nogui -w
+loadusr classicladder --nogui custom.clp
 
 net inpos motion.in-position => classicladder.0.in-01
 
@@ -28,3 +28,9 @@ net pus classicladder.0.out-02 => halui.mdi-command-05
 
 # probe down slowest
 net pds classicladder.0.out-03 => halui.mdi-command-06
+
+# set Z in G54 to probe switch height
+net spsh classicladder.0.out-04 => halui.mdi-command-07
+
+# rapid up so that operator can remove depth probe
+net rurdp classicladder.0.out-05 => halui.mdi-command-08
