@@ -4,7 +4,7 @@
 ## Left joystick is X,Y. Left D pad is Z.
 ## Back button engages E stop.
 ## Start button turns E stop off, then turns machine on.
-## Left shoulder button and X, Y, or B (corresponding to Z axis) touches off selected axis (zeros G54 to current position)
+## Left shoulder button and X, Y, or B (corresponding to Z axis) zeros G54 to current position for that axis
 ## Right shoulder button starts the homing sequence
 
 loadusr -W hal_input X-Box
