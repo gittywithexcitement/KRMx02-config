@@ -21,8 +21,8 @@
   <property name="customhal" type="int" value="1"/>
   <property name="digitsin" type="float" value="15.0"/>
   <property name="digitsout" type="float" value="15.0"/>
-  <property name="dirhold" type="float" value="200.0"/>
-  <property name="dirsetup" type="float" value="200.0"/>
+  <property name="dirhold" type="float" value="4000.0"/>
+  <property name="dirsetup" type="float" value="4000.0"/>
   <property name="drivertype" type="string" value="other"/>
   <property name="floatsin" type="float" value="10.0"/>
   <property name="floatsout" type="float" value="10.0"/>
@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="3800.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '8ee55c0f4840d8f23d20cd03fcce64af'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '6715574baf4911cc467d99b7ff2e2c45'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '7df99e6366b9e526d0e13679f2b672e0')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '8b452a21c100e292bf782cd5f2f766d4'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '8b4b1e142db3e852666aaeb36b2ffcf7'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'c1c360b87cfa867865ac8b6b1cb997d3')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -114,9 +114,9 @@
   <property name="yhomevel" type="float" value="-0.4"/>
   <property name="ylatchdir" type="int" value="0"/>
   <property name="yleadscrew" type="float" value="0.318309886184"/>
-  <property name="ymaxacc" type="float" value="10.0"/>
+  <property name="ymaxacc" type="float" value="5.0"/>
   <property name="ymaxlim" type="float" value="26.16"/>
-  <property name="ymaxvel" type="float" value="3.0"/>
+  <property name="ymaxvel" type="float" value="1.5"/>
   <property name="ymicrostep" type="float" value="10.0"/>
   <property name="yminlim" type="float" value="-0.1"/>
   <property name="ypulleyden" type="float" value="20.0"/>
