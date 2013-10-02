@@ -59,8 +59,8 @@ net xenable axis.0.amp-enable-out => stepgen.0.enable
 net all-home => axis.0.home-sw-in
 
 setp stepgen.1.position-scale [AXIS_1]SCALE
-setp stepgen.1.steplen 1
-setp stepgen.1.stepspace 1
+setp stepgen.1.steplen 2
+setp stepgen.1.stepspace 2
 setp stepgen.1.dirhold 13800
 setp stepgen.1.dirsetup 13800
 setp stepgen.1.maxaccel [AXIS_1]STEPGEN_MAXACCEL
