@@ -21,8 +21,8 @@
   <property name="customhal" type="int" value="1"/>
   <property name="digitsin" type="float" value="15.0"/>
   <property name="digitsout" type="float" value="15.0"/>
-  <property name="dirhold" type="float" value="100000.0"/>
-  <property name="dirsetup" type="float" value="100000.0"/>
+  <property name="dirhold" type="float" value="349058.0"/>
+  <property name="dirsetup" type="float" value="349058.0"/>
   <property name="drivertype" type="string" value="other"/>
   <property name="floatsin" type="float" value="10.0"/>
   <property name="floatsout" type="float" value="10.0"/>
@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="3800.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '9a718f4cca3ec1205e4c66cb5b6b8fb0'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'f43efd41eedc3aa12ddfb6bc9d94495e'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '204c079c39072b651a2bb3701c9940af')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '549811a302fe799692a53f901aa90ce6'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '88c75378408125c49ca6d4ace4b5d00c'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '25a0745cec40873dd3d55f136187fd34')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -90,8 +90,8 @@
   <property name="spindlepwm2" type="float" value="0.8"/>
   <property name="spindlespeed1" type="float" value="100.0"/>
   <property name="spindlespeed2" type="float" value="800.0"/>
-  <property name="stepspace" type="float" value="39269.0"/>
-  <property name="steptime" type="float" value="39269.0"/>
+  <property name="stepspace" type="float" value="174529.0"/>
+  <property name="steptime" type="float" value="174529.0"/>
   <property name="tempexists" type="int" value="0"/>
   <property name="units" type="int" value="0"/>
   <property name="usespindleatspeed" type="bool" value="False"/>
