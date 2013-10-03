@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="3800.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '34b2d83def9c47a05621eaf5f25ccb52'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'b590f757ab817fe08144784d3a334a20'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '494fbe9a91b7b2425261c1cd5572f700')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '9a718f4cca3ec1205e4c66cb5b6b8fb0'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'f43efd41eedc3aa12ddfb6bc9d94495e'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '204c079c39072b651a2bb3701c9940af')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -90,8 +90,8 @@
   <property name="spindlepwm2" type="float" value="0.8"/>
   <property name="spindlespeed1" type="float" value="100.0"/>
   <property name="spindlespeed2" type="float" value="800.0"/>
-  <property name="stepspace" type="float" value="22000.0"/>
-  <property name="steptime" type="float" value="22000.0"/>
+  <property name="stepspace" type="float" value="39269.0"/>
+  <property name="steptime" type="float" value="39269.0"/>
   <property name="tempexists" type="int" value="0"/>
   <property name="units" type="int" value="0"/>
   <property name="usespindleatspeed" type="bool" value="False"/>
