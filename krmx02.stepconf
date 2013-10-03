@@ -21,8 +21,8 @@
   <property name="customhal" type="int" value="1"/>
   <property name="digitsin" type="float" value="15.0"/>
   <property name="digitsout" type="float" value="15.0"/>
-  <property name="dirhold" type="float" value="100000.0"/>
-  <property name="dirsetup" type="float" value="100000.0"/>
+  <property name="dirhold" type="float" value="4000.0"/>
+  <property name="dirsetup" type="float" value="4000.0"/>
   <property name="drivertype" type="string" value="other"/>
   <property name="floatsin" type="float" value="10.0"/>
   <property name="floatsout" type="float" value="10.0"/>
@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="3800.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', 'b3e7b92828eae85de5e78576f7317675'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '77f13353fb3e552a170123b13ec61be4'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', 'eb662ffd13b29f8bb3c0a8891386e0b0')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '422475254703950a0db3543b02ab75e3'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', 'e7c3a33a22c9d944aa4d323df092eef9'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '3c9323a7f7c38013a3ce7ff46bba1ccb')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -58,21 +58,21 @@
   <property name="pin17" type="string" value="spindle-on"/>
   <property name="pin17inv" type="bool" value="False"/>
   <property name="pin1inv" type="bool" value="False"/>
-  <property name="pin2" type="string" value="xstep"/>
+  <property name="pin2" type="string" value="ystep"/>
   <property name="pin2inv" type="bool" value="False"/>
-  <property name="pin3" type="string" value="xdir"/>
+  <property name="pin3" type="string" value="ydir"/>
   <property name="pin3inv" type="bool" value="True"/>
-  <property name="pin4" type="string" value="ystep"/>
+  <property name="pin4" type="string" value="xstep"/>
   <property name="pin4inv" type="bool" value="False"/>
-  <property name="pin5" type="string" value="ydir"/>
+  <property name="pin5" type="string" value="xdir"/>
   <property name="pin5inv" type="bool" value="True"/>
-  <property name="pin6" type="string" value="zstep"/>
+  <property name="pin6" type="string" value="ystep"/>
   <property name="pin6inv" type="bool" value="False"/>
-  <property name="pin7" type="string" value="zdir"/>
+  <property name="pin7" type="string" value="ydir"/>
   <property name="pin7inv" type="bool" value="False"/>
-  <property name="pin8" type="string" value="ystep"/>
+  <property name="pin8" type="string" value="zstep"/>
   <property name="pin8inv" type="bool" value="False"/>
-  <property name="pin9" type="string" value="ydir"/>
+  <property name="pin9" type="string" value="zdir"/>
   <property name="pin9inv" type="bool" value="False"/>
   <property name="pp2_direction" type="int" value="0"/>
   <property name="pp3_direction" type="int" value="0"/>
