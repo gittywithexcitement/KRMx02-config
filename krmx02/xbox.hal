@@ -83,10 +83,10 @@ setp near.5.scale 1.03
 
 # set the size of incremental moves in units
 setp incremental-move-size.in0 0  # this one must be 0 to prevent motion unless a button is pressed
-setp incremental-move-size.in1 .001 #TODO set this to smallest movement increment
-setp incremental-move-size.in2 .005
-setp incremental-move-size.in3 .025
-setp incremental-move-size.in4 .100
+setp incremental-move-size.in1 0.00052360 # 1 microstep
+setp incremental-move-size.in2 0.0052360 # 1 full step
+setp incremental-move-size.in3 0.026180
+setp incremental-move-size.in4 0.099483
 setp incremental-move-size.in5 0
 setp incremental-move-size.in6 0
 setp incremental-move-size.in7 0
