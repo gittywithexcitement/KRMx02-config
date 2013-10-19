@@ -36,7 +36,7 @@
   <property name="latency" type="float" value="3800.0"/>
   <property name="machinename" type="string" value="krmx02"/>
   <property name="manualtoolchange" type="bool" value="True"/>
-  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', 'ad76fd4e42a440982d7c392266e3db3f'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '5bb61550ed7681e6f09aaadb44e1db1e'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '77f6bc7a2fc5439501716aa096696aad')]"/>
+  <property name="md5sums" type="eval" value="[('/home/dank/linuxcnc/configs/krmx02/README', '772dc2c5a938b105682417f26f6f4378'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.ini', '40fc399cb38141f88d8091ec7ff16486'), ('/home/dank/linuxcnc/configs/krmx02/krmx02.hal', '2dc6efb854fd0383ecad118f153f5ed5')]"/>
   <property name="modbus" type="bool" value="False"/>
   <property name="number_pports" type="int" value="1"/>
   <property name="period" type="int" value="25000"/>
@@ -109,13 +109,13 @@
   <property name="xpulleynum" type="float" value="60.0"/>
   <property name="xscale" type="float" value="1909.8593171"/>
   <property name="xsteprev" type="float" value="200.0"/>
-  <property name="yhomepos" type="float" value="0.5382"/>
-  <property name="yhomesw" type="float" value="0.0"/>
+  <property name="yhomepos" type="float" value="0.5"/>
+  <property name="yhomesw" type="float" value="-0.02"/>
   <property name="yhomevel" type="float" value="-0.4"/>
   <property name="ylatchdir" type="int" value="0"/>
   <property name="yleadscrew" type="float" value="0.318309886184"/>
   <property name="ymaxacc" type="float" value="20.0"/>
-  <property name="ymaxlim" type="float" value="26.16"/>
+  <property name="ymaxlim" type="float" value="26.14"/>
   <property name="ymaxvel" type="float" value="6.667"/>
   <property name="ymicrostep" type="float" value="10.0"/>
   <property name="yminlim" type="float" value="-0.1"/>
