@@ -104,7 +104,7 @@
   <property name="xmaxlim" type="float" value="30.7"/>
   <property name="xmaxvel" type="float" value="7.5"/>
   <property name="xmicrostep" type="float" value="10.0"/>
-  <property name="xminlim" type="float" value="-0.1"/>
+  <property name="xminlim" type="float" value="-0.19"/>
   <property name="xpulleyden" type="float" value="20.0"/>
   <property name="xpulleynum" type="float" value="60.0"/>
   <property name="xscale" type="float" value="1909.8593171"/>
