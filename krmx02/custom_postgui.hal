@@ -4,5 +4,8 @@
 ##### Z probe touch off #####
 net pzat pyvcp.z-axis-touchoff => classicladder.0.in-00
 
-# move XY axes over probe
-net foo pyvcp.xy-to-probe => halui.mdi-command-09
+##### X0 is left edge of stock with 1/4 end mill #####
+net x0leqem pyvcp.here-is-x-neg-p125 => halui.mdi-command-09
+
+##### X0 is right edge of stock with 1/4 end mill #####
+net x0reqem pyvcp.here-is-x-pos-p125 => halui.mdi-command-10
