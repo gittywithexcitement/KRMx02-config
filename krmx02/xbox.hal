@@ -206,9 +206,9 @@ setp jog-speed-choice.in1 50
 net jog-inc-enable => jog-speed-choice.sel
 net jog-speed halui.jog-speed <= jog-speed-choice.out
 
-# set Z speed to 50% of XY speed
+# set Z speed to 60% of XY speed
 net joy-z-sig => decrease-z-speed.in
-setp decrease-z-speed.gain .50
+setp decrease-z-speed.gain .60
 setp decrease-z-speed.offset 0
 
 # jog.N.analog should be 0 during incremental jog, and the controller's value otherwise
