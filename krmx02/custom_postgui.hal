@@ -5,7 +5,13 @@
 net pzat pyvcp.z-axis-touchoff => classicladder.0.in-00
 
 ##### X0 is left edge of stock with 1/4 end mill #####
-net x0leqem pyvcp.here-is-x-neg-p125 => halui.mdi-command-09
+net x0leqem pyvcp.here-is-x-neg-p1285 => halui.mdi-command-09
 
 ##### X0 is right edge of stock with 1/4 end mill #####
-net x0reqem pyvcp.here-is-x-pos-p125 => halui.mdi-command-10
+net x0reqem pyvcp.here-is-x-pos-p1285 => halui.mdi-command-10
+
+##### Y0 is bottom edge of stock with 1/4 end mill #####
+net y0leqem pyvcp.here-is-y-neg-p1285 => halui.mdi-command-11
+
+##### Y0 is top edge of stock with 1/4 end mill #####
+net y0reqem pyvcp.here-is-y-pos-p1285 => halui.mdi-command-12

@@ -11,13 +11,23 @@ The contents of this file will not be overwritten when you run stepconf again.
 			<font>('Fixed',12)</font>
 		</button>
 		<button>
-			<halpin>"here-is-x-neg-p125"</halpin>
-			<text>"Here is X-.125"</text>
+			<halpin>"here-is-x-neg-p1285"</halpin>
+			<text>"Here is X-.1285"</text>
 			<font>('Fixed',12)</font>
 		</button>
 		<button>
-			<halpin>"here-is-x-pos-p125"</halpin>
-			<text>"Here is X+.125"</text>
+			<halpin>"here-is-x-pos-p1285"</halpin>
+			<text>"Here is X+.1285"</text>
+			<font>('Fixed',12)</font>
+		</button>
+		<button>
+			<halpin>"here-is-y-neg-p1285"</halpin>
+			<text>"Here is Y-.1285"</text>
+			<font>('Fixed',12)</font>
+		</button>
+		<button>
+			<halpin>"here-is-y-pos-p1285"</halpin>
+			<text>"Here is Y+.1285"</text>
 			<font>('Fixed',12)</font>
 		</button>
 	</labelframe>
