@@ -234,7 +234,7 @@ net mto mode-toggle.out => halui.mode.mdi
 net mto => mode-toggle-not.in
 net mtno mode-toggle-not.out => halui.mode.manual
 
-# LB and the X,Y,or B (corresponds to Z) touches off selected axis
+# LB and the X,Y,or B (corresponds to Z) zeros the selected axis
 net btn-x => x-and-lb.in0
 net btn-y => y-and-lb.in0
 net btn-b => b-and-lb.in0
