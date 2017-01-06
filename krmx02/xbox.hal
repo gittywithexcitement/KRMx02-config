@@ -244,7 +244,8 @@ net yalo y-and-lb.out => halui.mdi-command-01
 net balo b-and-lb.out => halui.mdi-command-02
 
 # RB starts the homing sequence
-net homeall halui.home-all <= input.0.btn-tr
+# disabled
+#net homeall halui.home-all <= input.0.btn-tr
 
 # XYB buttons select XYZ axes for homing purposes
 net btn-x halui.joint.0.select
