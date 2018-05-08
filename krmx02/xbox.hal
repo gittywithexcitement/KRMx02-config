@@ -223,9 +223,8 @@ net xaco x-analog-choice.out => halui.jog.0.analog
 net yaco y-analog-choice.out => halui.jog.1.analog
 net zaco z-analog-choice.out => halui.jog.2.analog
 
-# back button turns ESTOP on
-# Temporarily commenting this out until I can resolve this error message: ./xbox.hal:230: Pin 'input.0.btn-back' does not exist
-# net set-ESTOP input.0.btn-back 	=> halui.estop.activate
+# back button (named 'select' in LinuxCNC 2.7) turns ESTOP on
+net set-ESTOP input.0.btn-select 	=> halui.estop.activate
 # start button unsets ESTOP (first press) and turns machine on (2nd press)
 net unset-ESTOP input.0.btn-start => halui.estop.reset halui.machine.on
 
