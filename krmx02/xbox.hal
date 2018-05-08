@@ -8,7 +8,8 @@
 ## Right shoulder button starts the homing sequence
 ## Center X button switches between MDI and manual (but this change is not reflected in the UI)
 
-loadusr -W hal_input X-Box
+# I'm not sure if the -KRA does anything
+loadusr -W hal_input -KRA X-Box
 
 # values < 6000 become 0
 setp input.0.abs-x-flat 6000
